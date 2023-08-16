@@ -1,26 +1,68 @@
-#include <stdlib.h>
 #include "3-calc.h"
+
+int op_add(int a, int b);
+int op_sub(int a, int b);
+int op_mul(int a, int b);
+int op_div(int a, int b);
+int op_mod(int a, int b);
+
 /**
- * get_op_func - Get correct operation
- * @s: arg
- * Return: pointer to operator func
+ * op_add - Sums num
+ * @a: first num
+ * @b: second num
+ * Return: a+b
  */
 
-int (*get_op_func(char *s))(int, int)
+int op_add(int a, int b)
 {
-	op_t ops[] = {
-		{"+", op_add},
-		{"-", op_sub},
-		{"*", op_mul},
-		{"/", op_div},
-		{"%", op_mod},
-		{NULL, NULL},
-	};
+	return (a + b);
+}
 
-	int i = 0;
+/**
+ * op_mod - Modulus of num
+ * @a: num1
+ * @b: num2
+ * Return: Mod
+ */
 
-	while (ops[i].op != NULL && *(ops[i].op) != *s)
-		i++;
+int op_mod(int a, int b)
+{
+	return (a % b);
+}
 
-	return (ops[i].f);
+
+/**
+ * op_div - Quotients a and b
+ * @a: num1
+ * @b: num2
+ * Return: Quotient
+ */
+
+int op_div(int a, int b)
+{
+	return (a / b);
+}
+
+/**
+ * op_mul - multiplies nums
+ * @a: num1
+ * @b: num2
+ * Return: product
+ */
+
+int op_mul(int a, int b)
+{
+	return (a * b);
+}
+
+/**
+ * op_sub - Subtraction
+ * @a: num1
+ * @b: num2
+ * Return: Subtraction
+ */
+
+int op_sub(int a, int b)
+{
+	return (a - b);
 }
